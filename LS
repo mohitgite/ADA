@@ -1,0 +1,12 @@
+arr = [1,2,3,4,54,6,57,89,7,45,65,47];
+item = int(input("enter to search\t"));
+for i in range(len(arr)):
+  if arr[i]==item:
+    loc=i+1;
+    break;
+  else:
+    loc=0;
+if loc!=0:
+  print("Item found at location ",loc);
+else:
+  print("item not found");
