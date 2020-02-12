@@ -1,0 +1,53 @@
+#include<bits/stdc++.h>
+using namespace std;
+void merge(int a[],int l, int m, int r)
+{
+	int i,j,k;
+	int n1=m-l+1;
+	int n2=r-m;
+	int L[n1+1];
+	int R[n2+1];
+	for(i=0;i<n1;i++)	L[i]=a[l+i];
+	L[i]=INT_MAX;
+	for(i=0;i<n2;i++)R[i]=a[i+m+1];
+	R[i]=INT_MAX;
+	 i=0;k=l; j=0;
+	while(k<=r)
+	{
+	
+		if(L[i]<R[j])
+		{
+			a[k]=L[i];
+			k++; i++;
+		}
+		else
+		{
+			a[k]=R[j];
+			k++;j++;
+		}
+	}
+}
+void mergesort(int a[], int l, int r)
+{
+	if(l<r)
+	{
+		int m=(l+r)/2;
+		mergesort(a,l,m);
+		mergesort(a,m+1,r);
+		merge(a,l,m,r);
+	}
+}
+int main()
+{
+	int n,i;
+	cout<<"enter number of elements: ";
+	cin>>n;
+	int a[n];
+	cout<<"enter elements";
+	for(i=0;i<n;i++)	cin>>a[i];
+
+	mergesort(a,0,n-1);
+	cout<<"sorted data is: ";
+	for(i=0;i<n;i++)
+	cout<<a[i]<<endl;
+}
