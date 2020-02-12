@@ -7,7 +7,7 @@ def heapify(arr, n, i):
    if r < n and arr[largest] < arr[r]:
       largest = r
    if largest != i:
-      arr[i],arr[largest] = arr[largest],arr[i] # swap
+      arr[i],arr[largest] = arr[largest],arr[i] 
       heapify(arr, n, largest)
 def heapsort(arr):
   n=len(arr)
